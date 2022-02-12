@@ -39,3 +39,18 @@ let bingoCards = [];
                 }
                 if (vertical) bingo = true;
             }
+
+            if (bingo) {
+                if (bingoCards.length == 1) {
+                    let sum = 0;
+                    for (let k = 0; k < bingoCards[0].length; k++) {
+                        for (let l = 0; l < bingoCards[0][k].length; l++) {
+                            if (typeof bingoCards[0][k][l] === 'number') {
+                                sum += bingoCards[0][k][l];
+                            }
+                        }
+                    }
+                    return sum * bingoNumbers[i];
+                } else remove.push(j);
+            }
+        }
