@@ -39,5 +39,16 @@ let bingoCards = [];
                 if (vertical) bingo = true;
             }
 
+            if (bingo) {
+                let sum = 0;
+                for (let k = 0; k < bingoCards[j].length; k++) {
+                    for (let l = 0; l < bingoCards[j][k].length; l++) {
+                        if (typeof bingoCards[j][k][l] === 'number') {
+                            sum += bingoCards[j][k][l];
+                        }
+                    }
+                }
+                return sum * bingoNumbers[i];
+            }
         }
     }
