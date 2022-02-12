@@ -1,4 +1,4 @@
-let bingoCards = [];
+    let bingoCards = [];
     let currentBingoCard = [];
 
     lines = lines.slice(2);
@@ -54,3 +54,10 @@ let bingoCards = [];
                 } else remove.push(j);
             }
         }
+
+        for (let j = 0; j < remove.length; j++) {
+            bingoCards[remove[j]] = null;
+        }
+        bingoCards = bingoCards.filter(element => element != null);
+        remove = [];
+    }
