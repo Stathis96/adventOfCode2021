@@ -18,3 +18,22 @@ module.exports = input => {
             start = element.end;
             end = element.start;
         }
+
+        if (element.start.x == element.end.x || element.start.y == element.end.y) {
+            let startX = Math.min(element.start.x, element.end.x);
+            let startY = Math.min(element.start.y, element.end.y);
+            let endX = Math.max(element.start.x, element.end.x);
+            let endY = Math.max(element.start.y, element.end.y);
+
+            for (let y = startY; y <= endY; y++) {
+                for (let x = startX; x <= endX; x++) {
+                    if (!grid[`${x},${y}`]) grid[`${x},${y}`] = 0;
+                    grid[`${x},${y}`]++;
+                }
+            }
+        } 
+        }
+    });
+
+    return Object.values(grid).filter(element => element >= 2).length;
+}
