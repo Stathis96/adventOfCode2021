@@ -31,7 +31,14 @@ module.exports = input => {
                     grid[`${x},${y}`]++;
                 }
             }
-        } 
+        } else {
+            let movement = end.x - start.x;
+            for (let i = 0; i <= movement; i++) {
+                let x = start.x + i;
+                let y = start.y + ((end.y > start.y) ? i : -i);
+                if (!grid[`${x},${y}`]) grid[`${x},${y}`] = 0;
+                grid[`${x},${y}`]++;
+            }
         }
     });
 
